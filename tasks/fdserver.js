@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 
 							var lineStream = new byline();
 							var depsStream  = new dStream();
-
+							//此处有个大问题，很严重，导致后续无法开发。读取文件流的时候监测不到data事件，无法进行写入处理！
 							var confStream = fs.createReadStream(Path.join(config.baseUrl,confFile));
 							confStream.pipe(lineStream);
 							//lineStream.pipe(process.stdout);
@@ -82,8 +82,9 @@ module.exports = function(grunt) {
 							depsStream.pipe(lineStream,config,confFile,jsMap,confList,jsDepsMap,loadDeps);
 						}
 					};	
-
+					//此处查找依赖还需要在拆分，或者在不拆分的基础上，传入参数，将合并后的文件写入到f.dest地址
 					loadDeps(toolOptions,confList,jsListCon,jsDepsMap);
+
 
 		    	}
 		    });
