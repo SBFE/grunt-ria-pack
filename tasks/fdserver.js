@@ -15,10 +15,10 @@ var tool = utils.tool;
 var toolOptions = tool.config;
 
 var findFiles = tool.findFiles;
-var findalldeps = tool.findalldeps;
-
 var byline = tool.lineStream;
 var dStream = tool.depsStream;
+
+var md5Cache = tool.md5Cache;
 
 function isJs(path) {
 	return Path.extname(path) === '.js';
@@ -30,6 +30,8 @@ function isDirPath(path) {
 
 module.exports = function(grunt) {
 	grunt.registerMultiTask('fdserver', 'a simple, efficient, convenient RIA development environment', function() {
+	    var done = this.async();
+
 	    var options = this.options({
 		   	// baseUrl : 'test/',
 	     //    projectName : 'blog7',
@@ -46,8 +48,9 @@ module.exports = function(grunt) {
 
 	    this.files.forEach(function(f) {
 	      	var confList, jsListCon, jsList;
+	      	//打包后的地址传给配置文件
 	      	toolOptions.publishUrl = f.dest;
-	      	
+
 		    f.src.filter(function(path) {
 		        if (grunt.file.exists(path)) {
 					return true;
@@ -56,41 +59,40 @@ module.exports = function(grunt) {
 				}
 		    }).forEach(function(path) {
 		    	if(grunt.file.isDir(path)){
+		    		toolOptions.srcUrl = Path.resolve(rootpath,path);
+		    		if (options.projectName) {
+		    			path = Path.resolve(path,options.projectName);
+		    		}
 		    		jsList = findFiles.allFilesList(path);
 		    		jsListCon = findFiles.allFilesCon(jsList, path);
 		    		confList = findFiles.confList(jsList);
-		    		// findalldeps(toolOptions, false, confList, jsListCon);
-		    		var jsDepsMap = {};
-					confList.forEach(function(value,key){	
-						confList[key] = value.replace(toolOptions.baseUrl,'');
-					});
-
 					var loadDeps = function(config,confList,jsMap,jsDepsMap){
-						
-						//confList = confList.slice(0,1);
 						if(confList && confList.length){
 							var confFile = confList.shift();
-
 							var lineStream = new byline();
-							var depsStream  = new dStream();
-							//此处有个大问题，很严重，导致后续无法开发。读取文件流的时候监测不到data事件，无法进行写入处理！
+							var depsStream  = new dStream(done);
 							var confStream = fs.createReadStream(Path.join(config.baseUrl,confFile));
 							confStream.pipe(lineStream);
-							//lineStream.pipe(process.stdout);
 							lineStream.pipe(depsStream);
-							// console.log('111' + JSON.stringify(jsDepsMap));
 							depsStream.pipe(lineStream,config,confFile,jsMap,confList,jsDepsMap,loadDeps);
 						}
 					};	
 					//此处查找依赖还需要在拆分，或者在不拆分的基础上，传入参数，将合并后的文件写入到f.dest地址
-					loadDeps(toolOptions,confList,jsListCon,jsDepsMap);
-
-
+					var changedFile = md5Cache(toolOptions,jsListCon);
+					if(changedFile){
+						console.log('111');
+						var jsDepsMap = {};
+						confList.forEach(function(value,key){	
+							confList[key] = value;
+						});
+						loadDeps(toolOptions,confList,jsListCon,jsDepsMap);
+					}
+		    		
 		    	}
 		    });
 		        
 			// Write the destination file.
-			grunt.file.write(f.dest + "index.js","11");
+			// grunt.file.write(f.dest + "index.js","11");
 
 			// Print a success message.
 			// grunt.log.writeln('File "' + f.dest + '" created.');

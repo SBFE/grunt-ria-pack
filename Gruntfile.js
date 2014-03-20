@@ -25,20 +25,20 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      tests: ['test/tmp'],
+      tests: ['test/tmp/*.js']
     },
 
     // Configuration to be run (and then tested).
     fdserver: {
       default_options: {
         options: {
-          baseUrl : 'test/',
-          projectName : 'blog7',
+          // baseUrl : 'test/',
+          // projectName : 'blog7',
           reset : true,
           minify: true
         },
         files: {
-          'test/tmp/': 'test/source/'
+          'test/tmp/': 'test/source/blog7'
         }
       },
     },
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
   // plugin's task(s), then test the result.
   // grunt.registerTask('test', ['clean', 'fdserver', 'nodeunit']);
 
-  grunt.registerTask('test', ['clean', 'fdserver']);
+  grunt.registerTask('test', ['clean','fdserver']);
 
   // By default, lint and run all tests.
   grunt.registerTask('default', ['jshint', 'test']);
