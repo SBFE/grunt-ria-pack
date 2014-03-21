@@ -1,0 +1,1 @@
+function main(){job.add("w1",3),job.add("w2",3),job.start()}$registJob("test1a",function(){}),$registJob("weibow2",function(){}),$registJob("jobs2",function(){}),$registJob("weibow1",function(){}),$registJob("jobs1",function(){});;
