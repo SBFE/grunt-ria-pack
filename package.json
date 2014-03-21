@@ -1,7 +1,7 @@
 {
-  "name": "grunt-pack",
+  "name": "grunt-ria-pack",
   "description": "a simple, efficient, convenient RIA development environment",
-  "version": "0.0.3",
+  "version": "0.0.2",
   "homepage": "https://github.com/xiaoyue3/grunt-pack",
   "author": {
     "name": "xiaoyue"
