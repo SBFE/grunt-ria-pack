@@ -33,12 +33,11 @@ module.exports = function(grunt) {
       default_options: {
         options: {
           // baseUrl : 'test/',
-          // projectName : 'blog7',
-          reset : true,
-          minify: true
+          projectName : 'blog7',      //工程名
+          reset : true                //是否进行增量打包
         },
         files: {
-          'test/tmp/': 'test/source/blog7'
+          'test/tmp': 'test/source'
         }
       },
     },
