@@ -1,7 +1,7 @@
 {
   "name": "grunt-ria-pack",
   "description": "a simple, efficient, convenient RIA development environment",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "homepage": "https://github.com/liuxiaoyue/grunt-ria-pack",
   "author": {
     "name": "xiaoyue"
@@ -20,7 +20,7 @@
     }
   ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "grunt test"

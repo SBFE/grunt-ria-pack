@@ -49,6 +49,10 @@ module.exports = function(grunt) {
 			toolOptions.reset = options.reset;
 		}
 
+		if(options.minify){
+			toolOptions.minify = options.minify;
+		}
+
 	    this.files.forEach(function(f) {
 	      	var confList, jsListCon, jsList;
 	      	//打包后的地址传给配置文件
@@ -62,12 +66,13 @@ module.exports = function(grunt) {
 				}
 		    }).forEach(function(path) {
 		    	if(grunt.file.isDir(path)){
-		    		//设置要打包的文件的绝对路径
-		    		toolOptions.srcUrl = Path.resolve(rootpath,path);
 		    		//若设置工程名，读取要打包的工程
 		    		if (options.projectName) {
 		    			path = Path.resolve(path,options.projectName);
 		    		}
+		    		//设置要打包的文件的绝对路径
+		    		toolOptions.srcUrl = Path.resolve(rootpath,path);
+		    		
 		    		//获取要打包的文件夹下所有的js文件地址
 		    		jsList = findFiles.allFilesList(path);
 		    		//获取要打包的文件夹下所有的js文件内容
