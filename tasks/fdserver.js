@@ -38,9 +38,9 @@ module.exports = function(grunt) {
 	     //    reset : true,
 	    });
 
-	    if (options.baseUrl) {
-			toolOptions.baseUrl = Path.resolve(rootpath, options.baseUrl);
-		}
+	 //    if (options.baseUrl) {
+		// 	toolOptions.baseUrl = Path.resolve(rootpath, options.baseUrl);
+		// }
 		if (options.projectName) {
 			toolOptions.projectName = options.projectName;
 		}
@@ -94,7 +94,7 @@ module.exports = function(grunt) {
 							var confFile = confList.shift();
 							var lineStream = new byline();
 							var depsStream  = new dStream(done);
-							var confStream = fs.createReadStream(Path.join(config.baseUrl,confFile));
+							var confStream = fs.createReadStream(confFile);
 							confStream.pipe(lineStream);
 							lineStream.pipe(depsStream);
 							depsStream.pipe(lineStream,config,confFile,jsMap,confList,jsDepsMap,loadDeps);
