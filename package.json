@@ -2,21 +2,21 @@
   "name": "grunt-ria-pack",
   "description": "a simple, efficient, convenient RIA development environment",
   "version": "0.0.3",
-  "homepage": "https://github.com/xiaoyue3/grunt-pack",
+  "homepage": "https://github.com/xiaoyue3/grunt-ria-pack",
   "author": {
     "name": "xiaoyue"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/xiaoyue3/grunt-pack.git"
+    "url": "git://github.com/xiaoyue3/grunt-ria-pack.git"
   },
   "bugs": {
-    "url": "https://github.com/xiaoyue3/grunt-pack/issues"
+    "url": "https://github.com/xiaoyue3/grunt-ria-pack/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/xiaoyue3/grunt-pack/blob/master/LICENSE-MIT"
+      "url": "https://github.com/xiaoyue3/grunt-ria-pack/blob/master/LICENSE-MIT"
     }
   ],
   "engines": {
