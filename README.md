@@ -39,9 +39,9 @@ grunt.initConfig({
 ### Options
 
 #### options.projectName
-state：specific project name
-Type: `String`
-Default value: `undefined`
+>state：specific project name
+>Type: `String`
+>Default value: `undefined`
 
 #### options.reset
 state：all files combined or uglify
