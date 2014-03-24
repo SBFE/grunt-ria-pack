@@ -76,7 +76,7 @@ module.exports = function(grunt) {
 		    		//获取要打包的文件夹下所有的js文件地址
 		    		jsList = findFiles.allFilesList(path);
 		    		//获取要打包的文件夹下所有的js文件内容
-		    		jsListCon = findFiles.allFilesCon(jsList, path);
+		    		jsListCon = findFiles.allFilesCon(jsList);
 		    		//获取要打包的文件夹下所有需要合并并打包的文件列表
 		    		confList = findFiles.confList(jsList);
 		    		//是否进行增量打包，默认情况下全部打包，即不进行增量打包
