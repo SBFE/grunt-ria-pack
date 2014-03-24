@@ -73,8 +73,8 @@ grunt.initConfig({
     },
 })
 ```
-source path :test/blog7
-publish path : test/tmp
+* source path :test/blog7
+* publish path : test/tmp
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
