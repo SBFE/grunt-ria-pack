@@ -39,19 +39,19 @@ grunt.initConfig({
 ### Options
 
 #### options.projectName
-*state：specific project name
-*Type: `String`
-*Default value: `undefined`
+*  state：specific project name
+*  Type: `String`
+*  Default value: `undefined`
 
 #### options.reset
-*state：all files combined or uglify
-*Type: `Boolean`
-*Default value: `true`
+*  state：all files combined or uglify
+*  Type: `Boolean`
+*  Default value: `true`
 
 #### options.minify
-*state：all files uglify
-*Type: `Boolean`
-*Default value: `false`
+*  state：all files uglify
+*  Type: `Boolean`
+*  Default value: `false`
 
 ### Usage Examples
 
