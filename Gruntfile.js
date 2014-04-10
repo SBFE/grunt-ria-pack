@@ -34,11 +34,10 @@ module.exports = function(grunt) {
         options: {
           // baseUrl : 'test/',
           projectName : 'blog7',      //工程名
-          reset : true,   //是否进行增量打包
           minify: true     //是否压缩文件          
         },
         files: {
-          'test/tmp': 'test/'
+          'test/tmp/': 'test/'
         }
       },
     },
