@@ -11,6 +11,7 @@ var fs = require('fs');
 var Path = require('path');
 var rootpath = process.cwd();
 var utils = require('js-combine-pack');
+var async = require('async');
 var tool = utils.tool;
 var toolOptions = tool.config;
 
@@ -62,14 +63,15 @@ module.exports = function(grunt) {
 		    		confList = jsList.filter(function(value,key){
 									return value.match(/\\conf\\/);
 								});
-		    		confList.forEach(function(file) {
+		    		async.each(confList, function(file, callback) {
 		    			findJsAllImport(toolOptions.basedir,file,jsListCon,function(data){
-		    				var filename = Path.basename(file).replace(/\.dev/,'');
+							var filename = Path.basename(file).replace(/\.dev/,'');
 			    			grunt.file.write(f.dest + filename, data);
 			    			grunt.log.writeln('File "' + f.dest + filename + '" created.');
-			    			done();
 			    		});
-					});	
+					}, function(err){
+					  	done();
+					});
 		    	}
 		    });
 	    });

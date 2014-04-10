@@ -1,7 +1,7 @@
 {
   "name": "grunt-ria-pack",
   "description": "a simple, efficient, convenient RIA development environment",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "homepage": "https://github.com/liuxiaoyue/grunt-ria-pack",
   "author": {
     "name": "xiaoyue"
@@ -26,7 +26,8 @@
     "test": "grunt test"
   },
   "dependencies":{
-    "js-combine-pack": "*"
+    "js-combine-pack": "*",
+    "async":"*"
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
