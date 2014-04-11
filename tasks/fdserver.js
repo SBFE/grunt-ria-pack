@@ -9,19 +9,13 @@
 'use strict';
 var fs = require('fs');
 var Path = require('path');
-var rootpath = process.cwd();
 var utils = require('js-combine-pack');
 var async = require('async');
 var tool = utils.tool;
 var toolOptions = tool.config;
-
 var findFiles = tool.findFiles;
-// var byline = tool.lineStream;
-var dStream = tool.depsStream;
-
-var md5Cache = tool.md5Cache;
-
 var findJsAllImport = tool.findJsAllImport;
+
 function isJs(path) {
 	return Path.extname(path) === '.js';
 }
@@ -40,9 +34,7 @@ module.exports = function(grunt) {
 		if (options.projectName) {
 			toolOptions.projectName = options.projectName;
 		}
-		// if(options.minify){
-		// 	toolOptions.minify = options.minify;
-		// }
+		
 	    this.files.forEach(function(f) {
 	      	var confList, jsListCon, jsList;	
 		    f.src.filter(function(path) {
