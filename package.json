@@ -1,6 +1,6 @@
 {
   "name": "grunt-ria-pack",
-  "description": "a simple, efficient, convenient RIA development environment",
+  "description": "blog js combine gruntplugin",
   "version": "0.0.10",
   "homepage": "https://github.com/liuxiaoyue/grunt-ria-pack",
   "author": {
@@ -39,6 +39,7 @@
     "grunt": "~0.4.2"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "combine"
   ]
 }
