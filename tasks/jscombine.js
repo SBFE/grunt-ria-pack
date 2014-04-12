@@ -42,13 +42,13 @@ module.exports = function(grunt) {
 		    		//获取要打包的文件夹下所有的js文件地址
 		    		jsList = findFiles.allFilesList(toolOptions.basedir);
 		    		//获取要打包的文件夹下所有的js文件内容
-		    		jsListCon = findFiles.allFilesCon(jsList);
+		    		jsListCon = findFiles.allFilesCon(jsList,toolOptions.basedir);
 		    		//获取要打包的文件夹下所有需要合并并打包的文件列表
 		    		confList = jsList.filter(function(value,key){
 									return value.match(/\\conf\\/);
 								});
 		    		async.each(confList, function(file, callback) {
-		    			findJsAllImport(toolOptions.basedir,file,jsListCon,function(data){
+		    			findJsAllImport(file,jsListCon,function(data){
 							var filename = Path.basename(file).replace(/\.dev/,'');
 			    			grunt.file.write(f.dest + filename, data);
 			    			grunt.log.writeln('File "' + f.dest + filename + '" created.');
