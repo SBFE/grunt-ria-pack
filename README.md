@@ -1,7 +1,7 @@
 grunt-ria-pack
 ==========
 
->gruntplungin  js  css  combine
+>gruntplungin  js combine
 
 
 ## Getting Started
@@ -24,7 +24,7 @@ In your project's Gruntfile, add a section named `fdserver` to the data object p
 
 ```js
 grunt.initConfig({
-  fdserver: {
+  jscombine: {
      default:{
           options: {
              // Task-specific options go here.
@@ -43,28 +43,16 @@ grunt.initConfig({
 *  Type: `String`
 *  Default value: `undefined`
 
-#### options.reset
-*  state：all files combined or uglify
-*  Type: `Boolean`
-*  Default value: `true`
-
-#### options.minify
-*  state：all files uglify
-*  Type: `Boolean`
-*  Default value: `false`
-
 ### Usage Examples
 
 #### Options
 
 ```js
 grunt.initConfig({
-   fdserver: {
+    jscombine: {
       default_options: {
         options: {
-          projectName : 'blog7',      //projectName
-          reset : true,   // all files combined or uglify
-          minify: true     // all files uglify        
+          projectName : 'blog7'      //projectName   
         },
         files: {
           'test/tmp': 'test/'
