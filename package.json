@@ -1,7 +1,7 @@
 {
   "name": "grunt-ria-pack",
   "description": "blog js combine gruntplugin",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "homepage": "https://github.com/liuxiaoyue/grunt-ria-pack",
   "author": {
     "name": "xiaoyue"
