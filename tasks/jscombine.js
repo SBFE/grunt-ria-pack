@@ -50,7 +50,7 @@ module.exports = function(grunt) {
 		    		async.each(confList, function(file, callback) {
 		    			findJsAllImport(file,jsListCon,function(data){
 							var filename = Path.basename(file).replace(/\.dev/,'');
-			    			grunt.file.write(f.dest + filename, data);
+			    			grunt.file.write(f.dest + '/' +options.projectName + '/'+filename, data);
 			    			grunt.log.writeln('File "' + f.dest + filename + '" created.');
 			    		});
 					}, function(err){
